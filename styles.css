@@ -21,6 +21,14 @@ li {
 .octicon:hover {
   color: blue; }
 
+.profile img, .profile span {
+  display: block; }
+
+.profile img {
+  width: 230px;
+  height: 230px;
+  border-radius: 6px; }
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -28,19 +36,27 @@ html {
 
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font: Helvetica; }
 
 header, footer, main, aside {
   border: 1px solid red; }
 
+main, aside {
+  display: inline-block;
+  vertical-align: top; }
+
+aside {
+  float: left; }
+
 .wrapper, .navbar {
-  width: 75%;
+  width: 980px;
   margin: auto; }
 
 aside {
-  width: 34%;
+  width: 230px;
   margin: auto; }
 
 main {
-  width: 64%;
+  width: 730px;
   margin: auto; }
