@@ -1,4 +1,4 @@
-[
+var orgs = [
   {
     "login": "theironyard",
     "id": 2248433,

@@ -1,4 +1,4 @@
-[
+var repos = [
   {
     "id": 44266063,
     "name": "Choose_your_own_adventure",

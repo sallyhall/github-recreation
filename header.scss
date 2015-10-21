@@ -1,0 +1,32 @@
+@import "variables";
+
+header{
+  background-color: $headerGray;
+}
+
+.small-avatar{
+  img{
+    width:20px;
+    height: 20px;
+    border-radius: 3px;
+  }
+}
+
+ul{
+  list-style-type: none;
+  display: inline-block;
+}
+.right-nav{
+  float:right;
+}
+
+li{
+  display: inline-block;
+  a{
+    text-decoration: none;
+  }
+}
+
+.octicon:hover{
+  color:blue;
+}

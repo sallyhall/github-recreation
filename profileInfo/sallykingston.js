@@ -1,4 +1,4 @@
-{
+var profile = {
   "login": "sallykingston",
   "id": 5340860,
   "avatar_url": "https://avatars.githubusercontent.com/u/5340860?v=3",

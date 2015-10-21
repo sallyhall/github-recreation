@@ -1,4 +1,4 @@
-[
+var events = [
   {
     "id": "3257403121",
     "type": "CreateEvent",
