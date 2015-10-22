@@ -1,3 +1,7 @@
+.navbar {
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e5e5; }
+
 header {
   background-color: #f5f5f5; }
 
@@ -6,9 +10,14 @@ header {
   height: 20px;
   border-radius: 3px; }
 
+.mega-octicon {
+  font-size: 28px; }
+
 ul {
   list-style-type: none;
-  display: inline-block; }
+  display: inline-block;
+  padding: 0;
+  margin: 0; }
 
 .right-nav {
   float: right; }
@@ -21,13 +30,22 @@ li {
 .octicon:hover {
   color: blue; }
 
+input {
+  height: 26px;
+  padding: 2px;
+  width: 360px; }
+
 .profile img, .profile span {
-  display: block; }
+  display: inline-block; }
 
 .profile img {
   width: 230px;
   height: 230px;
   border-radius: 6px; }
+
+.orgs img {
+  width: 40px;
+  height: 40px; }
 
 html {
   -webkit-box-sizing: border-box;
@@ -37,23 +55,20 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font: Helvetica; }
-
-header, footer, main, aside {
-  border: 1px solid red; }
+  font: Helvetica;
+  font-size: 13px; }
 
 main, aside {
   display: inline-block;
-  vertical-align: top; }
-
-aside {
-  float: left; }
+  vertical-align: top;
+  padding: 10px; }
 
 .wrapper, .navbar {
-  width: 980px;
+  width: 1000px;
   margin: auto; }
 
 aside {
+  float: left;
   width: 230px;
   margin: auto; }
 

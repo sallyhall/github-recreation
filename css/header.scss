@@ -1,5 +1,12 @@
 @import "variables";
 
+
+.navbar{
+  padding:10px 0;
+  border-bottom: 1px solid $borderGray;
+}
+
+
 header{
   background-color: $headerGray;
 }
@@ -12,9 +19,15 @@ header{
   }
 }
 
+.mega-octicon{
+  font-size: 28px;
+}
+
 ul{
   list-style-type: none;
   display: inline-block;
+  padding:0;
+  margin:0;
 }
 .right-nav{
   float:right;
@@ -29,4 +42,10 @@ li{
 
 .octicon:hover{
   color:blue;
+}
+
+input{
+  height:26px;
+  padding:2px;
+  width:360px;
 }

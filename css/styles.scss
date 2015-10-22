@@ -12,24 +12,22 @@ body{
   margin:0;
   padding:0;
   font: Helvetica;
+  font-size: 13px;
 }
 
-header,footer,main,aside{
-  border: 1px solid red;
-}
 main, aside{
   display: inline-block;
   vertical-align: top;
+  padding: 10px;
 }
 
-aside{float: left;}
-
 .wrapper, .navbar{
-  width:980px;
+  width:1000px;
   margin:auto;
 }
 
 aside{
+  float: left;
   width: 230px;
   margin:auto;
 }
