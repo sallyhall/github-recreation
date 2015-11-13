@@ -1,0 +1,45 @@
+#repos li{
+  display: inline-block;
+} a{
+  text-decoration: none;
+  font-size:15px;
+  font-weight: bold;
+}
+
+.repo{
+  margin: 30px auto;
+  margin:30px;
+  border-bottom: 1px solid gray;
+  color: $textGray;
+  .repo_stats{
+    float: right;
+    vertical-align: top;
+    a{
+      text-decoration: none;
+      color: $textGray;
+      :hover{
+        color: $githubBlue;
+      }
+    }
+  }
+  .repo_title a{
+    font-size: 20px;
+  }
+}
+
+
+.nav-tabs{
+  width:100%;
+}
+
+.btn-success{
+  background-image: linear-gradient(#8add6d, #60b044);
+}
+
+#editProfile{
+  background-color: $headerGray;
+  float:right;
+  border: 1px solid $borderGray;
+  position: absolute;
+  right: 265px;
+}

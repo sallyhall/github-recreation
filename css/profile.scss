@@ -1,4 +1,7 @@
+@import "variables";
+
 .profile{
+  font-size: 14px;
   img, span{
     display: inline-block;
   }
@@ -7,6 +10,32 @@
     height: 230px;
     border-radius: 6px;
   }
+  .name{
+    font-size: 26px;
+    line-height:30px;
+    font-weight:bold;
+    display:block;
+  }
+  .username{
+    font-size: 20px;
+    line-height:24px;
+    display: block;
+    color: $textGray;
+    font-weight:light;
+  }
+  .names{
+    border-bottom: 1px solid $borderGray;
+    margin:15px 0;
+    padding: 15px 0;
+  }
+  .octicon{
+    color: $octiconGray;
+    margin: 3px;
+  }
+  a{
+    text-decoration: none;
+    font-weight: normal;
+  }
 }
 
 .orgs{
@@ -14,4 +43,39 @@
     width:40px;
     height:40px;
   }
+}
+.stats{
+  border-top: 1px solid $borderGray;
+  border-bottom: 1px solid $borderGray;
+  padding: 5px;
+  margin: 5px;
+  a{
+    text-decoration: none;
+    color: $textGray;
+    font-size: 11px;
+    font-weight: lighter;
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+  }
+  .stat{
+    font-size: 28px;
+    font-weight:bold;
+    color: $githubBlue;
+    display: block;
+  }
+  .statlink{
+    display: inline-block;
+  }
+}
+.orgs{
+    font-size: 16px;
+    font-weight: bold;
+    span{
+      display: block;
+    }
+    img{
+      height: 42px;
+      width: 42px;
+    }
 }

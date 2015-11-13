@@ -1,6 +1,8 @@
 @import "header";
 @import "variables";
 @import "profile";
+@import "repos";
+@import "events";
 
 html {
   -webkit-box-sizing: border-box;
@@ -21,9 +23,14 @@ main, aside{
   padding: 10px;
 }
 
+.hidden{
+  display: none;
+}
+
 .wrapper, .navbar{
   width:1000px;
   margin:auto;
+  border:none;
 }
 
 aside{

@@ -5,42 +5,129 @@
     <title></title>
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
     <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/html" id="repoTmpl">
+      <div class = "repo">
+        <div class = "repo_stats">
+          <%= language %>
+          <a href= "<% html_url %>/stargazers">
+            <span class="octicon octicon-star"></span>
+            <%= stargazers_count%></a>
+          <a href= "<% html_url %>/network">
+            <span class="octicon octicon-git-branch"></span>
+            <%= forks_count %>
+          </a>
+        </div>
+        <h3 class = "repo_title">
+          <a href= "<%= html_url%>"> <%= name%></a>
+        </h3>
+        <p class = "repo_data">Updated <%- moment(updated_at).fromNow() %></p>
+    </script>
+    <script type="text/html" id="orgTmpl">
+      <a href = "http://github.com/<%=login%>">
+        <img src = "<%= avatar_url %>"></a>
+    </script>
+    <script type="text/html" id="pushEventTmpl">
+      <span class='mega-octicon octicon-git-commit'></span>
+      <div class = "time">
+        <%- moment(created_at).fromNow()%>
+      </div>
+      <div class = "title">
+        <a href="http://github.com/ <%= actor.login %>">
+          <%= actor.login %>
+        <a/>
+        pushed to
+        <a href="http://github.com/<%=repo.name%>/tree/<%= payload.ref.split("/")[2] %>">
+          <%= payload.ref.split("/")[2] %>
+        <a/>
+        at
+        <a href="http://github.com/<%= repo.name %>">
+          <%= repo.name %>
+        <a/>
+      </div>
+      <div class = "details">
+        <img class = "mediumpic" src="<%=actor.avatar_url%>">
+        <img class = "smallpic" src="<%=actor.avatar_url%>">
+        <a href = "http://github.com/<%=repo.name%>/commit/<%=payload.head%>">
+          <%=payload.head.substring(0,6)%>
+        </a>
+        <%=payload.commits[0].message%>
+      </div>
+    </script>
+    <script type="text/html" id="createRepoEventTmpl">
+      <span class="octicon octicon-repo"></span>
+      <a href="http://github.com/ <%= actor.login %>">
+        <%= actor.login %>
+      <a/>
+      created repository
+      <a href="http://github.com/<%= repo.name %>">
+        <%= repo.name %>
+      <a/>
+      <%- moment(created_at).fromNow()%>
+      <br>
+    </script>
+    <script type="text/html" id="createBranchEventTmpl">
+      <span class="octicon octicon-git-branch"></span>"
+      <a href="http://github.com/ <%= actor.login %>">
+        <%= actor.login %>
+      <a/>
+      created branch
+      <a href="http://github.com/<%=repo.name%>/tree/<%=payload.ref%>">
+        <%=payload.ref%>
+      <a/>
+      at
+      <a href="http://github.com/<%= repo.name %>">
+        <%= repo.name %>
+      <a/>
+      <%- moment(created_at).fromNow() %>
+      <br>
+    </script>
   </head>
   <body>
     <header>
-      <nav class = "navbar">
-        <span class="mega-octicon octicon-mark-github"></span>
-        <input type="text" placeholder="Search Github"></input>
-        <ul class = "left-nav">
-          <li>
-            <a href = "https://github.com/pulls">Pull Requests</a>
-          </li>
-          <li>
-            <a href = "https://github.com/issues">Issues</a>
-          </li>
-          <li>
-            <a href = "https://gist.github.com/">Gist</a>
-          </li>
-        </ul>
-        <ul class = "right-nav">
-          <li>
-            <span class="octicon octicon-bell"></span>
-          </li>
-          <li>
-            <span class="octicon octicon-plus"></span>
-          </li>
-          <li>
-            <span class="small-avatar"></span>
-          </li>
-        </ul>
+      <nav class="navbar navbar-default">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><span class="mega-octicon octicon-mark-github"></span></a>
+          </div>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Github">
+            </div>
+          </form>
+          <ul class = "left-nav">
+            <li>
+              <a href = "https://github.com/pulls">Pull Requests</a>
+            </li>
+            <li>
+              <a href = "https://github.com/issues">Issues</a>
+            </li>
+            <li>
+              <a href = "https://gist.github.com/">Gist</a>
+            </li>
+          </ul>
+          <ul class = "right-nav">
+            <li>
+              <span class="octicon octicon-bell"></span>
+            </li>
+            <li>
+              <span class="octicon octicon-plus"></span>
+              <span class="octicon octicon-triangle-down"></span>
+            </li>
+            <li>
+              <span class="small-avatar"></span>
+              <span class="octicon octicon-triangle-down"></span>
+            </li>
+          </ul>
       </nav>
     </header>
     <div class = "wrapper">
       <aside>
         <div class = "profile">
-          <span class = "username"></span>
-          <span class = "name"></span>
+          <div class = "names">
+            <span class = "name"></span>
+            <span class = "username"></span>
+          </div>
           <span class = "company"></span>
           <span class = "location"></span>
           <span class = "email"></span>
@@ -48,28 +135,62 @@
           <span class = "joinDate"></span>
         </div>
         <div class = "stats"></div>
-        <div class = "orgs"></div>
+        <div class = "orgs"><span>Organizations</span></div>
       </aside>
+
+      <div>
+
+
       <main>
-        <a href="" class="contrTab">
-          <span class="octicon octicon-diff-added"></span>
-          Contributions
-        </a>
-        <a href="" class="repoTab">
-          <span class="octicon octicon-repo"></span>
-          Repositories
-        </a>
-        <a href="" class="activTab">
-          <span class="octicon octicon-rss"></span>
-          Public Activity
-        </a>
-        <div class = "tabs">
-          <section class="repos">
-          </section>
-          <section class="activity">
-          </section>
-          <section class="contributions">
-          </section>
+        <button class="btn btn-sm" id="editProfile">
+          <span class="octicon octicon-pencil"></span>
+          Edit Profile
+        </button>
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation">
+            <a href="#contributions" aria-controls="contributions" role="tab" data-toggle="tab">
+              <span class="octicon octicon-diff-added"></span>
+              Contributions
+            </a>
+          </li>
+          <li role="presentation" class="active" >
+            <a href="#repos" aria-controls="repos" role="tab" data-toggle="tab">
+              <span class="octicon octicon-repo"></span>
+              Repositories
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">
+              <span class="octicon octicon-rss"></span>
+              Public Activity
+            </a>
+          </li>
+        </ul>
+
+        <div class = "tab-content">
+          <div role="tabpanel" class="tab-pane active" id="repos">
+            <nav class="navbar navbar-default repo-nav">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Find a repository...">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+              </form>
+              <ul>
+                <li><a href="" id="allrepos">All</a></li>
+                <li><a href="" id="publicrepos">Public</a></li>
+                <li><a href="" id="privaterepos">Private</a></li>
+                <li><a href="" id="sources">Sources</a></li>
+                <li><a href="" id="forks">Forks</a></li>
+                <li><a href="" id="mirrors">Mirrors</a></li>
+              </ul>
+              <button type="button" class="btn btn-success"><span class="octicon octicon-repo"></span> New</button>
+            </nav>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="activity">
+          </div>
+          <div role="tabpanel" class="tab-pane" id="contributions">
+          </div>
       </div>
       </main>
       <footer>
@@ -83,14 +204,14 @@
       </footer>
     </div>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
     <script type="text/javascript" src="bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
     <script src="profileInfo/profile.js"></script>
     <script src="profileInfo/starred.js"></script>
     <script src="profileInfo/repos.js"></script>
     <script src="profileInfo/events.js"></script>
     <script src="profileInfo/orgs.js"></script>
     <script src="main.js"></script>
-
   </body>
 </html>

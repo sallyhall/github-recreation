@@ -3,7 +3,12 @@
   border-bottom: 1px solid #e5e5e5; }
 
 header {
-  background-color: #f5f5f5; }
+  background-color: #f8f8f8; }
+  header .container-fluid {
+    width: 1000px; }
+  header .navbar-form .form-control {
+    height: 22px;
+    width: 360px; }
 
 .small-avatar img {
   width: 20px;
@@ -23,29 +28,129 @@ ul {
   float: right; }
 
 li {
-  display: inline-block; }
+  display: inline-block;
+  margin: 5px; }
   li a {
-    text-decoration: none; }
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px; }
 
 .octicon:hover {
   color: blue; }
 
-input {
-  height: 26px;
-  padding: 2px;
-  width: 360px; }
+.octicon-triangle-down {
+  font-size: 10px; }
 
-.profile img, .profile span {
-  display: inline-block; }
-
-.profile img {
-  width: 230px;
-  height: 230px;
-  border-radius: 6px; }
+.profile {
+  font-size: 14px; }
+  .profile img, .profile span {
+    display: inline-block; }
+  .profile img {
+    width: 230px;
+    height: 230px;
+    border-radius: 6px; }
+  .profile .name {
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: bold;
+    display: block; }
+  .profile .username {
+    font-size: 20px;
+    line-height: 24px;
+    display: block;
+    color: #888;
+    font-weight: light; }
+  .profile .names {
+    border-bottom: 1px solid #e5e5e5;
+    margin: 15px 0;
+    padding: 15px 0; }
+  .profile .octicon {
+    color: #999;
+    margin: 3px; }
+  .profile a {
+    text-decoration: none;
+    font-weight: normal; }
 
 .orgs img {
   width: 40px;
   height: 40px; }
+
+.stats {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 5px;
+  margin: 5px; }
+  .stats a {
+    text-decoration: none;
+    color: #888;
+    font-size: 11px;
+    font-weight: lighter;
+    display: inline-block;
+    width: 33%;
+    text-align: center; }
+  .stats .stat {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4078C0;
+    display: block; }
+  .stats .statlink {
+    display: inline-block; }
+
+.orgs {
+  font-size: 16px;
+  font-weight: bold; }
+  .orgs span {
+    display: block; }
+  .orgs img {
+    height: 42px;
+    width: 42px; }
+
+#repos li {
+  display: inline-block; }
+
+a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold; }
+
+.repo {
+  margin: 30px auto;
+  margin: 30px;
+  border-bottom: 1px solid gray;
+  color: #888; }
+  .repo .repo_stats {
+    float: right;
+    vertical-align: top; }
+    .repo .repo_stats a {
+      text-decoration: none;
+      color: #888; }
+      .repo .repo_stats a :hover {
+        color: #4078C0; }
+  .repo .repo_title a {
+    font-size: 20px; }
+
+.nav-tabs {
+  width: 100%; }
+
+.btn-success {
+  background-image: linear-gradient(#8add6d, #60b044); }
+
+#editProfile {
+  background-color: #f8f8f8;
+  float: right;
+  border: 1px solid #e5e5e5;
+  position: absolute;
+  right: 265px; }
+
+.mediumpic {
+  width: 20px;
+  height: 20px; }
+
+.smallpic {
+  width: 10px;
+  height: 10px; }
 
 html {
   -webkit-box-sizing: border-box;
@@ -63,9 +168,13 @@ main, aside {
   vertical-align: top;
   padding: 10px; }
 
+.hidden {
+  display: none; }
+
 .wrapper, .navbar {
   width: 1000px;
-  margin: auto; }
+  margin: auto;
+  border: none; }
 
 aside {
   float: left;

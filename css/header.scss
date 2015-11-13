@@ -9,6 +9,13 @@
 
 header{
   background-color: $headerGray;
+  .container-fluid{
+    width: 1000px;
+  }
+  .navbar-form .form-control{
+    height:22px;
+    width:360px;
+  }
 }
 
 .small-avatar{
@@ -35,8 +42,13 @@ ul{
 
 li{
   display: inline-block;
+  margin: 5px;
   a{
     text-decoration: none;
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px;
   }
 }
 
@@ -44,8 +56,7 @@ li{
   color:blue;
 }
 
-input{
-  height:26px;
-  padding:2px;
-  width:360px;
+
+.octicon-triangle-down{
+  font-size: 10px;
 }
