@@ -1,4 +1,7 @@
 # github-recreation
+Class assignment.
+See live at sallykingston.github.io/github-recreation.
+
 
 ## Description
 This assignment is designed to reinforce the use of the dom, introduction to templates, and using underscore.
