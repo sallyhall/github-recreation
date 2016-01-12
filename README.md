@@ -1,6 +1,6 @@
 # github-recreation
 Class assignment.
-See live at sallykingston.github.io/github-recreation.
+See live at http://sallykingston.github.io/github-recreation.
 
 
 ## Description
